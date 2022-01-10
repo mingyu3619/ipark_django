@@ -31,15 +31,18 @@ class memberData(models.Model): # 이번달 사용자 DB (액셀에서 받아온
         ( '교직원', '교직원'),
         )
 
-    graduate = models.CharField(blank=True,max_length=20,choices=graduate_status)          # 대학원/학부
-    major = models.CharField(blank=True,max_length=40,default = '')              # 학과
-    student_num = models.CharField(max_length=20,default = '')        # 학번
-    name = models.CharField(max_length=40,default = '')               # 이름
-    email = models.CharField(default = '',max_length=128, primary_key=True,help_text='학교 이메일 사용을 권장하며  ***@korea 까지만 저장해주세요!! 부득이하게 gmail 사용시 ***@gmail 까지만 저장해주세요')             # 이메일-primary
-    phone_num = models.CharField(max_length=15,default = '',null=True)          # 번호
-    image = models.ImageField(upload_to="member",default='default.jpg')  ##프로필 담을 이미지 필드
-    reserve_product =  models.CharField(blank=True,max_length=100,default = '',help_text="ex) 2학기 종일,2학기 아침,11월 아침,11월 종일,여자축구부")   # 예약상품
-    
+    graduate = models.CharField(blank=True, max_length=20, choices=graduate_status)          # 대학원/학부
+    major = models.CharField(blank=True, max_length=40, default = '')              # 학과
+    student_num = models.CharField(max_length=20, default = '')        # 학번
+    name = models.CharField(max_length=40, default = '')               # 이름
+    email = models.CharField(default = '', max_length=128, primary_key=True,help_text='학교 이메일 사용을 권장하며  ***@korea 까지만 저장해주세요!! 부득이하게 gmail 사용시 ***@gmail 까지만 저장해주세요')             # 이메일-primary
+    phone_num = models.CharField(max_length=15, default = '', null=True)          # 번호
+    image = models.ImageField(upload_to="member", default='default.jpg')  ##프로필 담을 이미지 필드
+    registration_date = models.CharField(blank=True, max_length=100, default='', help_text="ex) 2022년 1월 1일")  # 등록날짜
+    reserve_product =  models.CharField(blank=True, max_length=100, default = '', help_text="ex) 2학기 종일,2학기 아침,11월 아침,11월 종일,여자축구부")   # 예약상품
+
+
+
     ##django admin의 member Data 에서 image 미리보기를 위한 image_tag
     def image_tag(self):
         if(self.image.url != "default.jpg"):
@@ -47,14 +50,16 @@ class memberData(models.Model): # 이번달 사용자 DB (액셀에서 받아온
     image_tag.short_description = 'Image'   
 
     price_status = (
+        ('160,000', '160,000'),
         ('120,000', '120,000'),
         ('40,000', '40,000'),
         ('30,000', '30,000'),
         ('15,000', '15,000'),
         ('10,000', '10,000'),
+        ('3,000', '3,000'),
         ('0', '0'),
         )
-    price = models.CharField(blank=True,max_length=20,null=False,choices=price_status)              #120000/30000
+    price = models.CharField(blank=True, max_length=20, null=False, choices=price_status)    #120000/30000
     class Meta:        
         verbose_name_plural = 'Member Data'
     on_off_status=(

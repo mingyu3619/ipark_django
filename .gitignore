@@ -8,3 +8,6 @@ db.sqlite3
 /ido/migrations
 /data
 /media
+
+.idea/
+venv/
