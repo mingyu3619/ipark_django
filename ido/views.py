@@ -10,7 +10,6 @@ from django.views.decorators.csrf import csrf_exempt
 from .form import UploadFileForm
 
 
-
 # Create your views here.
 
 class liveDataViewset(viewsets.ModelViewSet):
