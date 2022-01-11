@@ -60,7 +60,7 @@ class memberData(models.Model): # 이번달 사용자 DB (액셀에서 받아온
         ('0', '0'),
         )
     price = models.CharField(blank=True, max_length=20, null=False, choices=price_status)    #120000/30000
-    class Meta:        
+    class Meta:
         verbose_name_plural = 'Member Data'
     on_off_status=(
         ("현장 접수","현장 접수"),
