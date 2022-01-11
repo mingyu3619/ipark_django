@@ -31,10 +31,11 @@ class MemberResource(resources.ModelResource):
 
 
 class memberDataCustom(ImportExportMixin, admin.ModelAdmin):
+
     resource_class = MemberResource
     list_display = ['name', 'major', 'student_num', 'phone_num', 'reserve_product', 'email',
                     'covid_vaccine', 'Registration', 'registration_date', 'image_tag']
-    ordering = ['name']
+    ordering = ['name'] 
     search_fields = ['name', 'major', 'student_num', 'phone_num', 'reserve_product', 'email']
     readonly_fields = ('image_tag',)
 
