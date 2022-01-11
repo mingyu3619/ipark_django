@@ -15,7 +15,7 @@ class liveData(models.Model):
     enter_time = models.CharField(null=True,default='',max_length=50)  # 입장시간
     reserve_product =  models.CharField(max_length=10,default = '')   # 예약상품
     objects = models.Manager() # ~has no member vscode 에러 해결코드
-    class Meta:        
+    class Meta:
         verbose_name_plural = 'Live Data'
     def __str__(self):
         return str(self.name) if self.name else ''
@@ -46,8 +46,8 @@ class memberData(models.Model): # 이번달 사용자 DB (액셀에서 받아온
     ##django admin의 member Data 에서 image 미리보기를 위한 image_tag
     def image_tag(self):
         if(self.image.url != "default.jpg"):
-            return mark_safe('<img src="%s" width="100" height="100" />' % (self.image.url))        
-    image_tag.short_description = 'Image'   
+            return mark_safe('<img src="%s" width="100" height="100" />' % (self.image.url))
+    image_tag.short_description = 'Image'
 
     price_status = (
         ('160,000', '160,000'),
@@ -93,7 +93,7 @@ class covidRecord(models.Model): # 코로나 추적 DB & graph show function & a
     enter_time = models.CharField(default='',max_length=50)  # 입장시간
     id  = models.AutoField(primary_key=True)
 
-    class Meta:       
+    class Meta:
         verbose_name_plural = 'Covid Record'
     objects = models.Manager()
 
@@ -108,7 +108,7 @@ class Notice(models.Model):                                             # 공지
             return mark_safe('<img src="%s" width="100" height="100" />' % (self.image.url))
 
     image_tag.short_description = 'Image'
-    class Meta:       
+    class Meta:
         verbose_name_plural = '공지사항'
     objects = models.Manager()
 
@@ -123,7 +123,7 @@ class Lost_Found(models.Model):                                             # �
             return mark_safe('<img src="%s" width="100" height="100" />' % (self.image.url))
 
     image_tag.short_description = 'Image'
-    class Meta:       
+    class Meta:
         verbose_name_plural = '분실물 게시판'
     objects = models.Manager()
 
@@ -138,8 +138,6 @@ class Complain(models.Model):                                             # 공�
             return mark_safe('<img src="%s" width="100" height="100" />' % (self.image.url))
 
     image_tag.short_description = 'Image'
-    class Meta:       
+    class Meta:
         verbose_name_plural = '불편사항'
     objects = models.Manager()
-
-
