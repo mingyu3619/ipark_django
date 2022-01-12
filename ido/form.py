@@ -3,7 +3,7 @@ from django import forms
 from django.forms import ClearableFileInput
 
 from .models import memberData
-import re
+
 class UploadFileForm(forms.ModelForm):
     # class Meta:
     #     model =memberData

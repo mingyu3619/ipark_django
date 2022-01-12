@@ -19,7 +19,7 @@ class historicalRecordSerializer(serializers.ModelSerializer):
 class covidRecordSerializer(serializers.ModelSerializer):
     class Meta:
         model = covidRecord
-        fields = '__all__'        
+        fields = '__all__'
 
 
 class NoticeSerializer(serializers.ModelSerializer):
